@@ -6,8 +6,11 @@ plingplongs = (
 
 
 def convert(number: int) -> str:
-    result = [p for f, p in plingplongs if number % f == 0]
-    return ''.join(result) if result else str(number)
+    result = ''
+    for f, p in plingplongs:
+        if number % f == 0:
+            result += p
+    return result if result else str(number)
 
 
 assert convert(28) == 'Plong'
